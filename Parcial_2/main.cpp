@@ -1,5 +1,6 @@
 #include "general.h"
 #include "arma.h"
+#include "bala.h"
 
 //Definicion de variables globales de USO
 bool ava = true;
@@ -57,6 +58,7 @@ int main()
         }
 
         case 3:{
+            bool afecta = false;
             int def = 0;
 
             cout << "\n\n\tDefina la ubicacion del origen de la bala disparada" << endl;
@@ -66,20 +68,30 @@ int main()
             cout << "\n\tCual es la velocidad del tiro\n ---> ";cin >> v;
             cout << "\n\tCual es el angulo de tiro\n ---> ";cin >> a;
 
-            //bala def(d,h);
+            bala defensa(d,h);
+            afecta = defensa.validez(v,a);
 
-            cout << "\n\n\tBajo que parametro quiere defenderse" << endl;
-            cout << "\n\t1) Con posible ataque colateral" << endl;
-            cout << "\n\t2) Sin ataque colateral" << endl;
-            cout << "\n\n ---> "; cin >> def;
-            if (def == 1){
+            if (afecta == true){
+
+                cout << "\n\n\tATAQUE COMPLETAMENTE EFECTIVO" << endl;
+
+                cout << "\n\n\tBajo que parametro quiere defenderse" << endl;
+                cout << "\n\t1) Con posible ataque colateral" << endl;
+                cout << "\n\t2) Sin ataque colateral" << endl;
+                cout << "\n\n ---> "; cin >> def;
+                if (def == 1){
+
+                }
+                else if (def == 2){
+
+                }
+                else{
+                    cout << "\n\n\nVALOR FUERA DE LOS RANGOS DEL PUNTO 3 -REINGRESE-" << endl;
+                }
 
             }
-            else if (def == 2){
-
-            }
-            else{
-                cout << "\n\n\nVALOR FUERA DE LOS RANGOS DEL PUNTO 3 -REINGRESE-" << endl;
+            else if (afecta == false){
+                cout << "\n\n\tATAQUE NO EFECTIVO CONTRA EL ARMA DEFENSIVA" << endl;
             }
             break;
         }

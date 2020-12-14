@@ -7,14 +7,26 @@ bala::bala(double d, double h){
 
 bala::~bala(){};
 
-void validez (double velocidad, double angulo){
+bool bala::validez (double v, double a){
+    val = false;
+    ataque = distancia * 0.05;
+    angulo = (a*PI)/180;
+    velocidad = v;
+    vx = cos(angulo) * velocidad;
+    time = distancia / vx;
+
+    vy = sin(angulo) * velocidad;
+    momento = (vy * time) + (-g * pow(time,2))/2;
+
+    if (altura - momento < ataque) val = true;
+
+    return val;
+}
+
+void bala::disparo_simple (double v, double a){
 
 }
 
-void disparo_simple (double velocidad, double angulo){
-
-}
-
-void disparo_sin_colateral (double velocidad, double angulo){
+void bala::disparo_sin_colateral (double v, double a){
 
 }
