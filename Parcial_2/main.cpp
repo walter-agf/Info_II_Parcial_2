@@ -98,7 +98,41 @@ int main()
 
 
         case 4:{
-            cout << "\n\n\tCUATRO" << endl;
+            bool afecta = false;
+
+            cout << "\n\n\tDefina la ubicacion del origen de la bala ofensiva" << endl;
+            cout << "\n\tCual es su distancia horizontal (metros) \n ---> ";cin >> d;
+            cout << "\n\tCual es su altura vertical (metros) \n ---> ";cin >> h;
+            cout << "\n\n\tDefina datos de disaro de la bala OFENSIVA" << endl;
+            cout << "\n\tCual es la velocidad del tiro\n ---> ";cin >> v;
+            cout << "\n\tCual es el angulo de tiro\n ---> ";cin >> a;
+
+            bala ofensiva(d,h);
+            afecta = ofensiva.validez(v,a);
+
+            if (afecta == true){
+
+                cout << "\n\n\nDISPARO EFECTIVO\n\n\n" << endl;
+
+                cout << "\n\n\tDefina datos de disaro de la bala DEFENSIVA" << endl;
+                cout << "\n\tCual es la velocidad del tiro\n ---> ";cin >> v;
+                cout << "\n\tCual es el angulo de tiro\n ---> ";cin >> a;
+
+                afecta = ofensiva.cointento(v,a);
+
+                if (afecta == true){
+
+                    cout << "\n\n\nDISPARO DEFENSIVO EFECTIVO\n\n\n" << endl;
+                    ofensiva.neutralizar();
+                }
+                else{
+                    cout << "\n\nDISPARO DEFENSIVO NO RESULTANTE\n\n" << endl;
+                }
+
+            }
+            else{
+                cout << "\n\nDISPARO OFENSIVO NO RESULTANTE\n\n" << endl;
+            }
             break;
         }
 

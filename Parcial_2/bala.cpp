@@ -170,3 +170,99 @@ void bala::disparo_simple (){
     }
 
 }
+
+bool bala::cointento (double v, double a){
+
+    val = false;
+    ataque = distancia * 0.025;
+    angulo = (a*PI)/180;
+    velocidad = v;
+    v_def_x = cos(angulo) * velocidad;
+
+    v_def_y = sin(angulo) * velocidad;
+
+    time = distancia / vx;
+
+    for (float i = 0.001; i < time; i += 0.001){
+        dx = vx * i;
+
+        d_def_x = v_def_x * i;
+
+        if (distancia - dx - d_def_x < ataque){
+            momento = i;
+            val = true;
+        }
+        if (val == true) break;
+    }
+
+    lejania = ((vy*momento)+((-g*pow(momento,2))/2))-altura;
+
+    cercania = ((v_def_y*momento)+((-g*pow(momento,2))/2))-altura;
+
+    if (lejania + cercania < ataque) val = true;
+    else val = false;
+
+    return val;
+
+}
+
+void bala::neutralizar(){
+    posibilidad =false;
+    ataque = distancia * 0.005;
+    angulo = atan(-altura/distancia);
+    cad.push_back(angulo);
+    while(angulo < PI/2){
+        angulo += radian;
+        cad.push_back(angulo);
+    }
+    num = cad.size();
+    for (double i = 1.001; i < time; i += 0.001){
+        punto.push_back(((vy*i)+((-g*pow(i,2))/2))-altura);
+    }
+    cout << "\nLANZAMIENTO EXITOSO CON:\n" << endl;
+    cout << "______________________________________________________________________" << endl;
+    cout << "|                      |                          |                  |" << endl;
+    cout << "|      ANGULO          |         VELOCIDAD        |     TIEMPO       |" << endl;
+    cout << "|____________________________________________________________________|" << endl;
+    cont = 0;
+    pass = 0;
+    i = 0;
+    momento = 0.001;
+
+    for (; momento < time-1; momento += 0.001){
+
+        val = false;
+
+        llegada = (((g*pow(momento,2)/2)+punto[cont])/momento);
+
+        analizador = distancia - (vx * (momento + 1));
+
+        if (analizador > distancia * 0.025){
+            vel_x = analizador / momento;
+            for (; i < num; i += 1){
+                if (tan(cad[i])*vel_x > llegada - ataque && tan(cad[i])*vel_x < llegada + ataque){
+                    grados = cad[i] * 180 / PI;
+                    velocidad = sqrt(pow(vel_x,2)+pow(cad[i]*vel_x,2));
+                    cout << setprecision(8)<< "| " << grados << " grados    |     ";
+                    cout << setprecision(10) << velocidad << " m/s      | ";
+                    cout << setprecision(5) << momento << " segundos   |";
+                    cout << "\n|___________________________________________________________________|" << endl;
+                    val = true;
+                    posibilidad = true;
+                }
+                if (val == true) {
+                    i += 1;
+                    pass = i;
+                    break;
+                }
+            }
+
+        }
+        if (val == false) i = pass;
+        cont ++;
+    }
+
+    if (posibilidad == false ){
+        cout << "\n\n--ARMA DESTRUIDA NO EXISTIO TIEMPO DE REACCION--\n\n" << endl ;
+    }
+}
