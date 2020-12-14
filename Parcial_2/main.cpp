@@ -80,10 +80,10 @@ int main()
                 cout << "\n\t2) Sin ataque colateral" << endl;
                 cout << "\n\n ---> "; cin >> def;
                 if (def == 1){
-
+                    defensa.disparo_simple();
                 }
                 else if (def == 2){
-
+                    defensa.disparo_sin_colateral();
                 }
                 else{
                     cout << "\n\n\nVALOR FUERA DE LOS RANGOS DEL PUNTO 3 -REINGRESE-" << endl;

@@ -20,10 +20,10 @@ void arma::disparo_defensivo (){
         punto.push_back(((g*pow(i,2)/2)+altura)/i);
     }
     cout << "\nLANZAMIENTO EXITOSO CON:\n" << endl;
-    cout << "_______________________________________________________________" << endl;
-    cout << "|                   |                      |                  |" << endl;
-    cout << "|   ANGULO          |      VELOCIDAD       |     TIEMPO       |" << endl;
-    cout << "|_____________________________________________________________|" << endl;
+    cout << "______________________________________________________________________" << endl;
+    cout << "|                      |                          |                  |" << endl;
+    cout << "|      ANGULO          |         VELOCIDAD        |     TIEMPO       |" << endl;
+    cout << "|____________________________________________________________________|" << endl;
     cont = 0;
     time = 0.001;
     for (int i = 0; i < num; i++){
@@ -34,8 +34,10 @@ void arma::disparo_defensivo (){
             if (analizador > distancia - ataque && analizador < distancia + ataque){
                 grados = cad[i] * 180 / PI;
                 velocidad = sqrt(pow(analizador/time,2)+pow(punto[cont],2));
-                cout << "| " << grados << " grados    |     " << velocidad << " m/s      | " << time << " segundos   |";
-                cout << "\n|_____________________________________________________________|" << endl;
+                cout << setprecision(8)<< "| " << grados << " grados    |     ";
+                cout << setprecision(10) << velocidad << " m/s      | ";
+                cout << setprecision(5) << time << " segundos   |";
+                cout << "\n|______________________________________________________ ____________|" << endl;
                 salir = true;
             }
             if (salir == true) break;
@@ -57,10 +59,10 @@ void arma::disparo_ofensivo (){
         punto.push_back(((g*pow(i,2)/2)+altura)/i);
     }
     cout << "\nLANZAMIENTO EXITOSO CON:\n" << endl;
-    cout << "_______________________________________________________________" << endl;
-    cout << "|                   |                      |                  |" << endl;
-    cout << "|   ANGULO          |      VELOCIDAD       |     TIEMPO       |" << endl;
-    cout << "|_____________________________________________________________|" << endl;
+    cout << "______________________________________________________________________" << endl;
+    cout << "|                      |                          |                  |" << endl;
+    cout << "|      ANGULO          |         VELOCIDAD        |     TIEMPO       |" << endl;
+    cout << "|____________________________________________________________________|" << endl;
     cont = 0;
     time = 0.001;
     for (int i = 0; i < num; i++){
@@ -71,8 +73,10 @@ void arma::disparo_ofensivo (){
             if (analizador > distancia - ataque && analizador < distancia + ataque){
                 grados = cad[i] * 180 / PI;
                 velocidad = sqrt(pow(analizador/time,2)+pow(punto[cont],2));
-                cout << "| " << grados << " grados    |     " << velocidad << " m/s      | " << time << " segundos   |";
-                cout << "\n|_____________________________________________________________|" << endl;
+                cout << setprecision(8)<< "| " << grados << " grados    |     ";
+                cout << setprecision(10) << velocidad << " m/s      | ";
+                cout << setprecision(5) << time << " segundos   |";
+                cout << "\n|______________________________________________________ ____________|" << endl;
                 salir = true;
             }
             if (salir == true) break;
