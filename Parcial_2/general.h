@@ -2,15 +2,14 @@
 #define GENERAL_H
 
 #include <iostream>
+#include <math.h>
+#include <vector>
 
 using namespace std;
 
-//Definicion de variables globales de USO
+// MACROS
 
-bool ava = true;
-int conti = 0;
-double distancia = 0 , altura = 0;
-
-//_______________________________________
+#define PI 3.14159265
+#define g 9.81
 
 #endif // GENERAL_H

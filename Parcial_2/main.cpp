@@ -1,4 +1,13 @@
 #include "general.h"
+#include "arma.h"
+
+//Definicion de variables globales de USO
+bool ava = true;
+int conti = 0;
+double d = 0 , h = 0;
+//_______________________________________
+
+
 
 int main()
 {
@@ -29,33 +38,44 @@ int main()
 
         switch (conti) {
 
-        case 1:
+        case 1:{
             cout << "\n\n\tDefina la ubicacion del arma defensiva, respecto al arma ofensiva" << endl;
-            cout << "\n\tCual es su distancia horizontal" << endl;
+            cout << "\n\tCual es su distancia horizontal (metros) \n ---> ";cin >> d;
+            cout << "\n\tCual es su altura vertical (metros) \n ---> ";cin >> h;
+            arma ofensivo(d,h);
+            ofensivo.disparo_ofensivo();
+            ofensivo.~arma();
             break;
+        }
 
-
-        case 2:
+        case 2:{
             cout << "\n\n\tDefina la ubicacion del arma ofensiva, respecto al arma defensiva" << endl;
+            cout << "\n\tCual es su distancia horizontal (metros) \n ---> ";cin >> d;
+            cout << "\n\tCual es su altura vertical (metros) \n ---> ";cin >> h;
             break;
+        }
 
 
-        case 3:
+        case 3:{
             cout << "\n\n\tTRES" << endl;
             break;
+        }
 
 
-        case 4:
+        case 4:{
             cout << "\n\n\tCUATRO" << endl;
             break;
+        }
 
 
-        case 5:
+        case 5:{
             ava = false;
             break;
-        default:
+        }
+        default:{
             cout << "\n\n\tValor fuera de rango de ingreso -REINTENTE-" << endl;
             break;
+        }
         }
     }while (ava == true);
     cout << "\n\n____________________  GRACIAS :D ----- ADIOS :v  _________________\n\n" << endl;
