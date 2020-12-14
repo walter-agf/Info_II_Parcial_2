@@ -1,10 +1,10 @@
-#ifndef ARMA_H
-#define ARMA_H
+#ifndef BALA_H
+#define BALA_H
 #include "general.h"
 
-#endif // ARMA_H
+#endif // BALA_H
 
-class arma{
+class bala{
     private:
         double radian = PI / 180;
         double distancia,altura,angulo,analizador,time;
@@ -17,12 +17,13 @@ class arma{
 
 
     public:
-        arma(double distancia, double altura);
+        bala(double distancia, double altura);
 
-        void disparo_ofensivo ();
-        void disparo_defensivo ();
+        void validez (double velocidad, double angulo);
+        void disparo_simple (double velocidad, double angulo);
+        void disparo_sin_colateral (double velocidad, double angulo);
 
 
-        ~arma();
+        ~bala();
 
 };

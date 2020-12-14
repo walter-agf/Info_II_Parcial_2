@@ -1,5 +1,6 @@
 #include "general.h"
 #include "arma.h"
+#include "bala.h"
 
 //Definicion de variables globales de USO
 bool ava = true;
@@ -66,7 +67,8 @@ int main()
             cout << "\n\tCual es la velocidad del tiro\n ---> ";cin >> v;
             cout << "\n\tCual es el angulo de tiro\n ---> ";cin >> a;
 
-            //bala def(d,h);
+            bala defensa(d,h);
+            defensa.validez(v,a);
 
             cout << "\n\n\tBajo que parametro quiere defenderse" << endl;
             cout << "\n\t1) Con posible ataque colateral" << endl;

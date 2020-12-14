@@ -5,8 +5,10 @@ CONFIG -= qt
 
 SOURCES += \
         arma.cpp \
+        bala.cpp \
         main.cpp
 
 HEADERS += \
     arma.h \
+    bala.h \
     general.h
