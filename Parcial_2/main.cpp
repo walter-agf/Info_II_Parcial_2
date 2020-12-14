@@ -44,7 +44,6 @@ int main()
             cout << "\n\tCual es su altura vertical (metros) \n ---> ";cin >> h;
             arma ofensivo(d,h);
             ofensivo.disparo_ofensivo();
-            ofensivo.~arma();
             break;
         }
 

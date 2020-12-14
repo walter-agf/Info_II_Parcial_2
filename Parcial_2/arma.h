@@ -12,6 +12,7 @@ class arma{
         int num = 0, cont = 0;
         vector <double> punto;
         double grados, velocidad;
+        bool salir = false;
 
 
     public:
